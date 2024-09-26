@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import About from "./Components/About";
+import NavBar from "./Components/NavBar";
+import ProductsList from "./Components/ProductsList";
+import Slider from "./Components/Slider";
+import ProductDetails from "./Components/ProductDetails";
+import { Routes, Route } from "react-router-dom";
+import Footer from "./Components/Footer";
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import Products from "./Components/Prouducts";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={
+          <div>
+            <Slider />
+            <ProductsList />
+          </div>
+        } />
+        <Route path="about" element={<About />} />
+        <Route path="product/:productId" element={<ProductDetails />} />
+        <Route path="footer" element={<Footer />} />
+        <Route path="prouducts" element={<ProductsList />} />
+
+
+      </Routes>
     </div>
   );
 }
